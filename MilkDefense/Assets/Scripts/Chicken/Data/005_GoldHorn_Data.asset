@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10418a4340724af478612f1be1f7aa18, type: 3}
+  m_Name: 005_GoldHorn_Data
+  m_EditorClassIdentifier: Assembly-CSharp::ChickenData
+  infoData: {fileID: 11400000, guid: df843289e61d03240ab2c3e7cd7f79e0, type: 2}
+  prefab: {fileID: 6331726479349459338, guid: 1714e040d34760940b4b30605248419f, type: 3}
+  levelStats:
+  - maxHp: 300
+  - maxHp: 400
+  - maxHp: 500
