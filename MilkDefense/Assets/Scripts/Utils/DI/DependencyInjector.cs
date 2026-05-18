@@ -1,41 +1,32 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 /// 의존성 주입 클래스
-
 public static class DependencyInjector
 {
-    private readonly static Dictionary<string, MonoBehaviour> script_Dictionary = new Dictionary<string, MonoBehaviour>();
+    private static readonly Dictionary<Type, MonoBehaviour> _registry = new Dictionary<Type, MonoBehaviour>();
 
     public static void Constructor(MonoBehaviour script)
     {
-        string key = script.GetType().Name;
-        if (script_Dictionary.ContainsKey(key))
-        {
-            script_Dictionary[key] = script;
-        }
+        Type key = script.GetType();
+        if (_registry.ContainsKey(key))
+            _registry[key] = script;
         else
-        {
-            script_Dictionary.Add(key, script);
-        }
+            _registry.Add(key, script);
     }
 
-
-    public static void Demolisher(MonoBehaviour script) => script_Dictionary.Remove(script.GetType().Name);
-
-
-    public static T Get<T>() where T : MonoBehaviour => GetScript<T>(true);
-
-
-    private static T GetScript<T>(bool canFail = false) where T : MonoBehaviour
+    public static void Demolisher(MonoBehaviour script)
     {
-        string key = typeof(T).Name;
-        if (!script_Dictionary.ContainsKey(key) && !canFail)
-        {
-            //Debug.Log($"{key} dose not exist");
-        }
-        return script_Dictionary.ContainsKey(key) ? (T)script_Dictionary[key] : null;
+        _registry.Remove(script.GetType());
     }
 
+    public static T Get<T>() where T : MonoBehaviour
+    {
+        if (_registry.TryGetValue(typeof(T), out var script))
+            return (T)script;
+
+        Debug.LogWarning($"[DependencyInjector] {typeof(T).Name} 이 등록되지 않았습니다.");
+        return null;
+    }
 }

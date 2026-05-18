@@ -1,21 +1,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class ChickenGachaWeight
+{
+    public Grade grade;
+    [Tooltip("뽑기 가중치")]
+    public float weight;
+}
+
 public class ChickenManager : MonoBehaviour
 {
-    public static ChickenManager Instance { get; private set; }
-
     [SerializeField] private ChickenData[] chickenDataList;
     [SerializeField] private Transform[] chickenSlots;
     [SerializeField] private int preloadCountPerType = 3;
+    [SerializeField] private int _gachaCost = 50;
 
-    private const int ChickenPurchaseCost = 50;
+    [Header("시작 시 배치 닭 수")]
+    [SerializeField] private int _startChickenCount = 3;
+
+    [Header("등급별 뽑기 가중치")]
+    [SerializeField]
+    private ChickenGachaWeight[] _gachaWeights = new ChickenGachaWeight[]
+    {
+        new ChickenGachaWeight { grade = Grade.Common,   weight = 80f },
+        new ChickenGachaWeight { grade = Grade.Uncommon, weight = 15f },
+        new ChickenGachaWeight { grade = Grade.Rare,     weight = 5f  },
+    };
+
     private const int LimitUpgradeCost = 200;
     private const int MaxChickenLimit = 10;
 
     private Dictionary<ChickenData, ObjectPool<Chicken>> _pools;
-    private List<Chicken> _allChickens = new List<Chicken>();
-    private List<Chicken> _activeChickens = new List<Chicken>();
+    private Dictionary<Grade, List<ChickenData>> _dataByGrade;
+    private readonly List<Chicken> _allChickens = new List<Chicken>();
+    private readonly List<Chicken> _activeChickens = new List<Chicken>();
     private int _chickenLimit = 5;
 
     public int ChickenCount => _activeChickens.Count;
@@ -23,10 +42,10 @@ public class ChickenManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
-        Instance = this;
+        DependencyInjector.Constructor(this);
 
         _pools = new Dictionary<ChickenData, ObjectPool<Chicken>>();
+        _dataByGrade = new Dictionary<Grade, List<ChickenData>>();
 
         foreach (var data in chickenDataList)
         {
@@ -35,20 +54,33 @@ public class ChickenManager : MonoBehaviour
 
             for (int i = 0; i < preloadCountPerType; i++)
                 CreateAndRegister(data, pool);
+
+            if (!_dataByGrade.ContainsKey(data.grade))
+                _dataByGrade[data.grade] = new List<ChickenData>();
+            _dataByGrade[data.grade].Add(data);
         }
     }
 
-    [Header("Test")]
-    [SerializeField] private int testSpawnCount = 3;
+    private void OnDestroy()
+    {
+        DependencyInjector.Demolisher(this);
+    }
 
     private void Start()
     {
-        for (int i = 0; i < testSpawnCount; i++)
-            SpawnChicken(chickenDataList[0]);
+        if (!_dataByGrade.TryGetValue(Grade.Common, out var commonList) || commonList.Count == 0)
+        {
+            Debug.LogError("[ChickenManager] Common 등급 닭이 없습니다.");
+            return;
+        }
+
+        for (int i = 0; i < _startChickenCount; i++)
+            SpawnChicken(commonList[Random.Range(0, commonList.Count)]);
     }
 
-    // 특정 종류의 닭 구매
-    public void PurchaseChickenButton(ChickenData data)
+    // ─── 가챠 ─────────────────────────────────────────────
+
+    public void TryGacha()
     {
         if (_activeChickens.Count >= _chickenLimit)
         {
@@ -56,11 +88,18 @@ public class ChickenManager : MonoBehaviour
             return;
         }
 
-        int cost = _activeChickens.Count * ChickenPurchaseCost;
-
-        if (!ResourceManager.Instance.TrySpend(cost))
+        var resourceManager = DependencyInjector.Get<ResourceManager>();
+        if (!resourceManager.TrySpend(_gachaCost))
         {
             Debug.Log("[ChickenManager] 돈이 부족합니다.");
+            return;
+        }
+
+        ChickenData data = RollChicken();
+        if (data == null)
+        {
+            Debug.LogError("[ChickenManager] 뽑기 결과가 없습니다.");
+            resourceManager.Earn(_gachaCost);
             return;
         }
 
@@ -77,15 +116,75 @@ public class ChickenManager : MonoBehaviour
 
         int cost = _chickenLimit * LimitUpgradeCost;
 
-        if (!ResourceManager.Instance.TrySpend(cost))
+        if (!DependencyInjector.Get<ResourceManager>().TrySpend(cost))
         {
             Debug.Log("[ChickenManager] 돈이 부족합니다.");
             return;
         }
 
         _chickenLimit++;
-        Debug.Log($"[ChickenManager] 한도 업그레이드 → {_chickenLimit}칸");
+        Debug.Log($"[ChickenManager] 한도 업그레이드 -> {_chickenLimit}칸");
     }
+
+    private ChickenData RollChicken()
+    {
+        Grade grade = RollGrade();
+
+        if (!_dataByGrade.TryGetValue(grade, out var candidates) || candidates.Count == 0)
+        {
+            Debug.LogWarning($"[ChickenManager] {grade} 등급 닭이 없습니다.");
+            return null;
+        }
+
+        return candidates[Random.Range(0, candidates.Count)];
+    }
+
+    private Grade RollGrade()
+    {
+        float total = 0f;
+        foreach (var w in _gachaWeights) total += w.weight;
+
+        float roll = Random.Range(0f, total);
+        float cumulative = 0f;
+
+        foreach (var w in _gachaWeights)
+        {
+            cumulative += w.weight;
+            if (roll < cumulative) return w.grade;
+        }
+
+        return Grade.Common;
+    }
+
+    // ─── 머지 ─────────────────────────────────────────────
+
+    public List<Chicken> FindMergeables(ChickenData data, int level)
+    {
+        return _activeChickens.FindAll(c => c.Data == data && c.Level == level);
+    }
+
+    public void Merge(List<Chicken> targets, Vector3 spawnPos)
+    {
+        foreach (var chicken in targets)
+        {
+            chicken.gameObject.SetActive(false);
+            _activeChickens.Remove(chicken);
+        }
+
+        Grade[] mergeableGrades = { Grade.Common, Grade.Uncommon, Grade.Rare };
+        Grade rolledGrade = mergeableGrades[Random.Range(0, mergeableGrades.Length)];
+
+        if (!_dataByGrade.TryGetValue(rolledGrade, out var candidates) || candidates.Count == 0)
+        {
+            Debug.LogWarning($"[ChickenManager] 머지 결과 {rolledGrade} 등급 닭이 없습니다.");
+            return;
+        }
+
+        ChickenData newData = candidates[Random.Range(0, candidates.Count)];
+        SpawnMergedChicken(newData, spawnPos);
+    }
+
+    // ─── 스폰 ─────────────────────────────────────────────
 
     private void SpawnChicken(ChickenData data)
     {
@@ -103,7 +202,23 @@ public class ChickenManager : MonoBehaviour
         chicken.Initialize(data);
 
         _activeChickens.Add(chicken);
-        Debug.Log($"[ChickenManager] {data.infoData.entityName} 생성 ({_activeChickens.Count}/{_chickenLimit})");
+        Debug.Log($"[ChickenManager] {data.grade} 등급 {data.infoData.entityName} 생성 ({_activeChickens.Count}/{_chickenLimit})");
+    }
+
+    private void SpawnMergedChicken(ChickenData data, Vector3 spawnPos)
+    {
+        var pool = _pools[data];
+
+        Chicken chicken = pool.canRecycle
+            ? pool.GetRecycledObject()
+            : CreateAndRegister(data, pool);
+
+        chicken.transform.position = spawnPos;
+        chicken.gameObject.SetActive(true);
+        chicken.InitializeWithLevel(data, 2);
+
+        _activeChickens.Add(chicken);
+        Debug.Log($"[ChickenManager] 머지 완료 -> {data.grade} 등급 {data.infoData.entityName} Lv2");
     }
 
     private Chicken CreateAndRegister(ChickenData data, ObjectPool<Chicken> pool)

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Chicken : MonoBehaviour, IClickableEntity, IObjectPoolable
@@ -14,6 +15,7 @@ public class Chicken : MonoBehaviour, IClickableEntity, IObjectPoolable
     private HpBarInstance _hpBar;
     private int _level = 1;
     private float _currentHp = 0f;
+    private Coroutine _regenRoutine;
 
     public int Level => _level;
     public float MaxHp => GetStat().maxHp;
@@ -21,7 +23,7 @@ public class Chicken : MonoBehaviour, IClickableEntity, IObjectPoolable
 
     private const int MaxLevel = 3;
     private const float EggLayHpThreshold = 100f;
-    private const float EggCountVariance = 0.2f; // ¡¾20%
+    private const float EggCountVariance = 0.2f;
 
     private ChickenLevelStat GetStat() => _data.levelStats[_level - 1];
 
@@ -29,19 +31,29 @@ public class Chicken : MonoBehaviour, IClickableEntity, IObjectPoolable
     protected virtual void OnDisable()
     {
         canRecyclable = true;
+        StopRegen();
         if (_hpBar == null) return;
-        if (HpBarManager.Instance != null)
-            HpBarManager.Instance.Release(transform);
+        DependencyInjector.Get<HpBarManager>()?.Release(transform);
         _hpBar = null;
     }
+
+    public ChickenData Data => _data;
 
     public void Initialize(ChickenData data)
     {
         _data = data;
         _level = 1;
         _currentHp = 0f;
-        _hpBar = HpBarManager.Instance.Get(transform, EnemyType.Normal);
+        _hpBar = DependencyInjector.Get<HpBarManager>().Get(transform, EnemyType.Normal);
         _hpBar.UpdateBar(_currentHp, MaxHp);
+        StartRegen();
+    }
+
+    public void InitializeWithLevel(ChickenData data, int level)
+    {
+        Initialize(data);
+        for (int i = 1; i < level; i++)
+            LevelUp();
     }
 
     public void LevelUp()
@@ -55,6 +67,8 @@ public class Chicken : MonoBehaviour, IClickableEntity, IObjectPoolable
         _level++;
         _currentHp = Mathf.Min(_currentHp, MaxHp);
         _hpBar?.UpdateBar(_currentHp, MaxHp);
+
+        RestartRegen();
         Debug.Log($"[Chicken] ·¹º§¾÷ ¿Ï·á Lv{_level} (maxHp: {MaxHp}, eggCount: {EggCount})");
     }
 
@@ -64,9 +78,34 @@ public class Chicken : MonoBehaviour, IClickableEntity, IObjectPoolable
         _hpBar?.UpdateBar(_currentHp, MaxHp);
     }
 
-    private void OnMouseDown()
+    private void StartRegen()
     {
-        TryLayEgg();
+        StopRegen();
+        _regenRoutine = StartCoroutine(RegenRoutine());
+    }
+
+    private void StopRegen()
+    {
+        if (_regenRoutine != null)
+        {
+            StopCoroutine(_regenRoutine);
+            _regenRoutine = null;
+        }
+    }
+
+    private void RestartRegen()
+    {
+        StopRegen();
+        StartRegen();
+    }
+
+    private IEnumerator RegenRoutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(GetStat().hpRegenInterval);
+            GainHp(GetStat().hpRegenAmount);
+        }
     }
 
     public void TryLayEgg()
@@ -82,13 +121,20 @@ public class Chicken : MonoBehaviour, IClickableEntity, IObjectPoolable
 
         float multiplier = 1f + UnityEngine.Random.Range(-EggCountVariance, EggCountVariance);
         int count = Mathf.Max(1, Mathf.RoundToInt(EggCount * multiplier));
-        EggGrade grade = RollEggGrade(GetStat().eggGradeWeights);
 
-        ResourceManager.Instance.Earn(count);
-        Debug.Log($"[Chicken] Lv{_level} ´Þ°¿ {count}°³ ({grade}) È¹µæ (³²Àº HP: {_currentHp:F0})");
+        var batch = new System.Collections.Generic.Dictionary<Grade, int>();
+        for (int i = 0; i < count; i++)
+        {
+            Grade grade = RollEggGrade(GetStat().eggGradeWeights);
+            if (!batch.ContainsKey(grade)) batch[grade] = 0;
+            batch[grade]++;
+        }
+        DependencyInjector.Get<EggInventory>().AddBatch(batch);
+
+        Debug.Log($"[Chicken] Lv{_level} ´Þ°¿ {count}°³ È¹µæ (³²Àº HP: {_currentHp:F0})");
     }
 
-    private EggGrade RollEggGrade(float[] weights)
+    private Grade RollEggGrade(float[] weights)
     {
         float total = 0f;
         foreach (var w in weights) total += w;
@@ -100,9 +146,9 @@ public class Chicken : MonoBehaviour, IClickableEntity, IObjectPoolable
         {
             cumulative += weights[i];
             if (roll < cumulative)
-                return (EggGrade)i;
+                return (Grade)i;
         }
 
-        return EggGrade.Common; // fallback
+        return Grade.Common;
     }
 }

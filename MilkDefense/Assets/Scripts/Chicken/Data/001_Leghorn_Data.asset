@@ -16,5 +16,29 @@ MonoBehaviour:
   prefab: {fileID: 6534381830142267408, guid: 757d287b037b8c34b91c6069b65e8ae3, type: 3}
   levelStats:
   - maxHp: 300
+    eggCount: 10
+    hpRegenAmount: 1
+    hpRegenInterval: 0.25
+    eggGradeWeights:
+    - 70
+    - 20
+    - 8
+    - 2
   - maxHp: 400
+    eggCount: 15
+    hpRegenAmount: 1
+    hpRegenInterval: 0.25
+    eggGradeWeights:
+    - 70
+    - 20
+    - 8
+    - 2
   - maxHp: 500
+    eggCount: 20
+    hpRegenAmount: 1
+    hpRegenInterval: 0.25
+    eggGradeWeights:
+    - 70
+    - 20
+    - 8
+    - 2

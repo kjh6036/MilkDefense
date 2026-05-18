@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    public static ResourceManager Instance { get; private set; }
-
     [SerializeField] private TextMeshProUGUI moneyText;
 
     private int _money = 0;
@@ -12,8 +10,12 @@ public class ResourceManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
-        Instance = this;
+        DependencyInjector.Constructor(this);
+    }
+
+    private void OnDestroy()
+    {
+        DependencyInjector.Demolisher(this);
     }
 
     public bool TrySpend(int amount)

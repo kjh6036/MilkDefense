@@ -66,29 +66,45 @@
     <Compile Include="Assets\Scripts\Enemy\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Chicken\ChickenManager.cs" />
     <Compile Include="Assets\Scripts\Chicken\Chicken.cs" />
+    <Compile Include="Assets\Scripts\WaveData.cs" />
     <Compile Include="Assets\Scripts\ObjectPool\ObjectPool.cs" />
+    <Compile Include="Assets\Scripts\Mercenary\IMercenaryTargetSelector.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityClickDetector.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\SpriteColorAnimation.cs" />
+    <Compile Include="Assets\Scripts\Merge\MergeManager.cs" />
+    <Compile Include="Assets\Scripts\Mercenary\RangeIndicator.cs" />
     <Compile Include="Assets\Scripts\Chicken\ChickenData.cs" />
+    <Compile Include="Assets\Scripts\Store\SellButton.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyStatData.cs" />
-    <Compile Include="Assets\Scripts\StageManager.cs" />
+    <Compile Include="Assets\Scripts\Mercenary\MercenarySlotManager.cs" />
     <Compile Include="Assets\Scripts\HpBar\HpBarInstance.cs" />
+    <Compile Include="Assets\Scripts\Mercenary\RangedMercenary.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\TopDownCharacterController.cs" />
     <Compile Include="Assets\Scripts\Utils\EnumCollection.cs" />
+    <Compile Include="Assets\Scripts\Mercenary\MeleeMercenary.cs" />
     <Compile Include="Assets\Scripts\Utils\DI\DISetting.cs" />
+    <Compile Include="Assets\Scripts\Store\EggInventory.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityInfoData.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\PropsAltar.cs" />
+    <Compile Include="Assets\Scripts\Mercenary\MercenaryDragHandler.cs" />
+    <Compile Include="Assets\Scripts\Mercenary\MercenaryBase.cs" />
+    <Compile Include="Assets\Scripts\Mercenary\MercenaryStatData.cs" />
     <Compile Include="Assets\Scripts\HpBar\HpBarManager.cs" />
+    <Compile Include="Assets\Scripts\Merge\MergeButton.cs" />
     <Compile Include="Assets\Scripts\ResourceManager.cs" />
     <Compile Include="Assets\Scripts\Effect\EffectManager.cs" />
+    <Compile Include="Assets\Scripts\Stage\StageConfig.cs" />
     <Compile Include="Assets\Scripts\ObjectPool\IObjectPoolable.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Stage\StageManager.cs" />
     <Compile Include="Assets\Bolt 2D JellyFarm VE2\ReadMe\Scripts\ReadmeVE2.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyRegistry.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyInstance.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityInfoUI.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\StairsLayerTrigger.cs" />
-    <Compile Include="Assets\Scripts\SellButton.cs" />
+    <Compile Include="Assets\Scripts\Store\EggPriceManager.cs" />
+    <Compile Include="Assets\Scripts\Mercenary\MercenarySlot.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -658,6 +674,10 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.3.7f1\Editor\Data\Managed\UnityEngine\UnityEditor.XRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Sirenix.Reflection.Editor">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Reflection.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
       <HintPath>Library\PackageCache\com.unity.collections@aea9d3bd5e19\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
       <Private>False</Private>
@@ -666,12 +686,32 @@
       <HintPath>Library\PackageCache\com.unity.ext.nunit@d8c07649098d\net40\unity-custom\nunit.framework.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Sirenix.Serialization">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="DemiLib">
       <HintPath>Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Sirenix.Serialization.Config">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sirenix.OdinInspector.Editor">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sirenix.OdinInspector.Attributes">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.IO.Hashing">
       <HintPath>Library\PackageCache\com.unity.collections@aea9d3bd5e19\Unity.Collections.Tests\System.IO.Hashing\System.IO.Hashing.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sirenix.Utilities">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="DOTween">
@@ -686,40 +726,16 @@
       <HintPath>Assets\Plugins\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Sirenix.Utilities.Editor">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff\Mono.Cecil.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>Library\PackageCache\com.unity.collections@aea9d3bd5e19\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Sirenix.Reflection.Editor">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Reflection.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Sirenix.OdinInspector.Attributes">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Sirenix.Serialization.Config">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Sirenix.Utilities.Editor">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Sirenix.Utilities">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Sirenix.OdinInspector.Editor">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Sirenix.Serialization">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">

@@ -4,7 +4,7 @@ public enum EnemyType
     Mission,
     Boss
 }
-public enum EggGrade
+public enum Grade
 { 
     Common,
     Uncommon,
