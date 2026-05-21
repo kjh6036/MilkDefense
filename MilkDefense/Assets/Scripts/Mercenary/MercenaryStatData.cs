@@ -18,4 +18,7 @@ public class MercenaryStatData : ScriptableObject
 
     [Header("Purchase")]
     public int purchaseCost;
+
+    [Header("Skills")]
+    public SkillData[] skills;
 }

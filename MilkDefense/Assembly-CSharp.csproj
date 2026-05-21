@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Chicken\ChickenData.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyStatData.cs" />
     <Compile Include="Assets\Scripts\Mercenary\MercenarySlotManager.cs" />
+    <Compile Include="Assets\Scripts\Mercenary\SkillData.cs" />
     <Compile Include="Assets\Scripts\HpBar\HpBarInstance.cs" />
     <Compile Include="Assets\Scripts\Mercenary\RangedMercenary.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Stage\StageManager.cs" />
     <Compile Include="Assets\Bolt 2D JellyFarm VE2\ReadMe\Scripts\ReadmeVE2.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossTimerUI.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRegistry.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyInstance.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityInfoUI.cs" />

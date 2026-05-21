@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStatData
   enemyName: "\uD0B9\uC2AC\uB77C\uC784"
   enemyType: 2
-  prefab: {fileID: 473115515559183598, guid: 34c83a9e23d35934abfb3d02cdb697c3, type: 3}
-  maxHp: 1500
-  moveSpeed: 5
+  prefab: {fileID: 473115515559183598, guid: 7c9fd8139cb142d418a03b58883d38db, type: 3}
+  maxHp: 2000
+  moveSpeed: 20
   reward: 1

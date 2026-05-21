@@ -14,31 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChickenData
   infoData: {fileID: 11400000, guid: 8cb550072a28e8941be7c4a2a4cf2bf0, type: 2}
   prefab: {fileID: 4271442935278957600, guid: 2f7410302550a3c4c9da97e187ea1790, type: 3}
+  grade: 0
   levelStats:
-  - maxHp: 400
+  - maxHp: 300
     eggCount: 7
     hpRegenAmount: 1
-    hpRegenInterval: 0.25
+    hpRegenInterval: 0.35
     eggGradeWeights:
     - 70
     - 20
     - 8
     - 2
-  - maxHp: 600
+  - maxHp: 450
     eggCount: 12
-    hpRegenAmount: 1
-    hpRegenInterval: 0.25
+    hpRegenAmount: 2.5
+    hpRegenInterval: 0.35
     eggGradeWeights:
-    - 70
-    - 20
-    - 8
-    - 2
-  - maxHp: 900
+    - 62
+    - 25
+    - 10
+    - 3
+  - maxHp: 600
     eggCount: 17
-    hpRegenAmount: 1
-    hpRegenInterval: 0.25
+    hpRegenAmount: 6.5
+    hpRegenInterval: 0.35
     eggGradeWeights:
-    - 70
-    - 20
-    - 8
-    - 2
+    - 50
+    - 30
+    - 15
+    - 5

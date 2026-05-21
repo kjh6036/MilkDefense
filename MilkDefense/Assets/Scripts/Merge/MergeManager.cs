@@ -22,12 +22,6 @@ public class MergeManager : MonoBehaviour
 
     public void CheckChickenMerge(Chicken clicked, Vector3 worldPos)
     {
-        if (clicked.Data.grade == Grade.Epic)
-        {
-            _mergeButton.Hide();
-            return;
-        }
-
         List<Chicken> matches = DependencyInjector.Get<ChickenManager>().FindMergeables(clicked.Data, clicked.Level);
 
         if (matches.Count >= 3)
@@ -40,6 +34,7 @@ public class MergeManager : MonoBehaviour
     {
         var targets = SelectThree(clicked, matches);
         DependencyInjector.Get<ChickenManager>().Merge(targets, clicked.transform.position);
+        DependencyInjector.Get<EntityClickDetector>().HideAll();
     }
 
     // ─── 용병 ─────────────────────────────────────────────
@@ -64,6 +59,7 @@ public class MergeManager : MonoBehaviour
     {
         var targets = SelectThree(clicked, matches);
         DependencyInjector.Get<MercenarySlotManager>().Merge(targets, clicked.Slot);
+        DependencyInjector.Get<EntityClickDetector>().HideAll();
     }
 
     public void CheckHide()

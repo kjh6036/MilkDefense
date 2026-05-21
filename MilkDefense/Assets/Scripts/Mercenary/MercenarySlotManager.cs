@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class MercenaryGachaWeight
@@ -18,9 +20,10 @@ public class MercenarySlotManager : MonoBehaviour
     [Tooltip("이 거리 이상이면 슬롯으로 인식하지 않음")]
     [SerializeField] private float _slotSnapDistance = 1f;
 
-    [Header("가챠 비용")]
+    [Header("가챠")]
     [SerializeField] private int _gachaBaseCost = 50;
     [SerializeField] private int _gachaCostIncrement = 2;
+    [SerializeField] private Button _gachaButton;
 
     [Header("등급별 뽑기 가중치")]
     [SerializeField]
@@ -35,6 +38,7 @@ public class MercenarySlotManager : MonoBehaviour
     private Dictionary<MercenaryStatData, ObjectPool<MercenaryBase>> _pools;
     private Dictionary<Grade, List<MercenaryStatData>> _dataByGrade;
     private int _gachaPullCount = 0;
+    private TextMeshProUGUI _gachaButtonText;
 
     public int GachaCost => _gachaBaseCost + _gachaCostIncrement * _gachaPullCount;
 
@@ -56,6 +60,12 @@ public class MercenarySlotManager : MonoBehaviour
             if (!_dataByGrade.ContainsKey(data.grade))
                 _dataByGrade[data.grade] = new List<MercenaryStatData>();
             _dataByGrade[data.grade].Add(data);
+        }
+
+        if (_gachaButton != null)
+        {
+            _gachaButtonText = _gachaButton.GetComponentInChildren<TextMeshProUGUI>();
+            UpdateGachaButtonUI();
         }
     }
 
@@ -101,6 +111,7 @@ public class MercenarySlotManager : MonoBehaviour
         slot.Add(mercenary);
 
         _gachaPullCount++;
+        UpdateGachaButtonUI();
         Debug.Log($"[MercenarySlotManager] {data.grade} 등급 {data.mercenaryName} 획득 — 다음 비용: {GachaCost}G");
     }
 
@@ -134,6 +145,12 @@ public class MercenarySlotManager : MonoBehaviour
         return Grade.Common;
     }
 
+    private void UpdateGachaButtonUI()
+    {
+        if (_gachaButtonText != null)
+            _gachaButtonText.text = $"용병 고용\n{GachaCost}G";
+    }
+
     // ─── 판매 ─────────────────────────────────────────────
 
     public void Sell(MercenaryBase mercenary)
@@ -156,6 +173,9 @@ public class MercenarySlotManager : MonoBehaviour
 
     public void Merge(List<MercenaryBase> targets, MercenarySlot targetSlot)
     {
+        // targetSlot 인덱스 저장 (Rearrange 전에 위치 확보)
+        int targetSlotIndex = System.Array.IndexOf(_slots, targetSlot);
+
         foreach (var mercenary in targets)
         {
             mercenary.Slot?.RemoveMercenary(mercenary);
@@ -180,9 +200,22 @@ public class MercenarySlotManager : MonoBehaviour
             : CreateAndRegister(newData, pool);
 
         newMercenary.Initialize(newData);
-        targetSlot.Add(newMercenary);
 
+        // 나머지 용병 재정렬 후 새 용병 배치
         Rearrange();
+
+        // 재정렬 후 targetSlot이 비어있으면 직접 배치, 아니면 빈 슬롯 찾기
+        MercenarySlot slot = targetSlotIndex >= 0 && _slots[targetSlotIndex].IsEmpty
+            ? _slots[targetSlotIndex]
+            : FindAvailableSlot(newData);
+
+        if (slot == null)
+        {
+            Debug.LogWarning("[MercenarySlotManager] 머지 결과 배치할 슬롯이 없습니다.");
+            return;
+        }
+
+        slot.Add(newMercenary);
         Debug.Log($"[MercenarySlotManager] 머지 완료 -> {newData.grade} 등급 {newData.mercenaryName}");
     }
 

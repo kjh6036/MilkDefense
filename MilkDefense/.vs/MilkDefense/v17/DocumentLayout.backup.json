@@ -3,24 +3,68 @@
   "WorkspaceRootPath": "D:\\Unity\\MilkDefense\\MilkDefense\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\store\\eggpricemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\store\\eggpricemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\entity\\entityclickdetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entity\\entityclickdetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|d:\\unity\\milkdefense\\milkdefense\\assets\\scripts\\store\\eggsellbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\store\\eggsellbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|d:\\unity\\milkdefense\\milkdefense\\assets\\scripts\\mercenary\\mercenarystatdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mercenary\\mercenarystatdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\entity\\entityinfoui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entity\\entityinfoui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\chicken\\chickenmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\chicken\\chickenmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\merge\\mergemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\merge\\mergemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\mercenary\\mercenaryslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mercenary\\mercenaryslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\mercenary\\mercenarybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mercenary\\mercenarybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|d:\\unity\\milkdefense\\milkdefense\\assets\\scripts\\stage\\stagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\stage\\stagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\mercenary\\mercenaryslotmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mercenary\\mercenaryslotmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\store\\charactersellmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\store\\charactersellmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\stage\\stageconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\stage\\stageconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\stage\\stagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\stage\\stagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\enemy\\bosstimerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\bosstimerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|d:\\unity\\milkdefense\\milkdefense\\assets\\scripts\\enemy\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\resourcemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\resourcemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\enemy\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\store\\eggsellbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\store\\eggsellbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\store\\eggpricemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\store\\eggpricemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\enemy\\enemyinstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,15 +75,11 @@
       "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\hpbar\\hpbarmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\entity\\entityclickdetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entity\\entityclickdetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\utils\\di\\dependencyinjector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\utils\\di\\dependencyinjector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|d:\\unity\\milkdefense\\milkdefense\\assets\\scripts\\stage\\gameresultui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\stage\\gameresultui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\stage\\gameresultui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -59,28 +99,12 @@
       "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\chicken\\chicken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\mercenary\\mercenaryslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mercenary\\mercenaryslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\enemy\\enemyregistry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemyregistry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\chicken\\chickenmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\chicken\\chickenmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\mercenary\\mercenaryslotmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mercenary\\mercenaryslotmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\store\\charactersellbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\store\\charactersellbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\store\\charactersellmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\store\\charactersellmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Store\\SellButton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -95,24 +119,8 @@
       "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\store\\egginventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\resourcemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\resourcemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\mercenary\\mercenarydraghandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mercenary\\mercenarydraghandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\mercenary\\mercenarybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mercenary\\mercenarybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\merge\\mergemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\merge\\mergemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|D:\\Unity\\MilkDefense\\MilkDefense\\assets\\scripts\\entity\\entityinfoui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B228A9D3-557C-6A1A-09BD-73CA6283AE18}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entity\\entityinfoui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\StageManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -184,24 +192,139 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EnemySpawner.cs",
-              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Enemy\\EnemySpawner.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemySpawner.cs",
-              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Enemy\\EnemySpawner.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemySpawner.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAA0wJYAAAABAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "MercenaryStatData.cs",
+              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Mercenary\\MercenaryStatData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Mercenary\\MercenaryStatData.cs",
+              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Mercenary\\MercenaryStatData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Mercenary\\MercenaryStatData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T02:42:41.112Z",
+              "WhenOpened": "2026-05-21T06:01:13.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MergeManager.cs",
+              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Merge\\MergeManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Merge\\MergeManager.cs",
+              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Merge\\MergeManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Merge\\MergeManager.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAA0wFEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T07:24:38.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ChickenManager.cs",
+              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Chicken\\ChickenManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Chicken\\ChickenManager.cs",
+              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Chicken\\ChickenManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Chicken\\ChickenManager.cs",
+              "ViewState": "AgIAABcBAAAAAAAAAAA0wDoBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T02:19:40.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StageManager.cs",
+              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Stage\\StageManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Stage\\StageManager.cs",
+              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Stage\\StageManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Stage\\StageManager.cs",
+              "ViewState": "AgIAANEAAAAAAAAAAAAAwAoBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T01:00:52.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ResourceManager.cs",
+              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\ResourceManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ResourceManager.cs",
+              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\ResourceManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ResourceManager.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA0wCkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T00:22:42.53Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MercenaryBase.cs",
+              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Mercenary\\MercenaryBase.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Mercenary\\MercenaryBase.cs",
+              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Mercenary\\MercenaryBase.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Mercenary\\MercenaryBase.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAywGYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T02:46:16.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MercenarySlot.cs",
+              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Mercenary\\MercenarySlot.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Mercenary\\MercenarySlot.cs",
+              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Mercenary\\MercenarySlot.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Mercenary\\MercenarySlot.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAUwF4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T03:33:27.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EntityInfoUI.cs",
+              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Entity\\EntityInfoUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entity\\EntityInfoUI.cs",
+              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Entity\\EntityInfoUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entity\\EntityInfoUI.cs",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAA0wMEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T02:54:51.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EntityClickDetector.cs",
+              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Entity\\EntityClickDetector.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entity\\EntityClickDetector.cs",
+              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Entity\\EntityClickDetector.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entity\\EntityClickDetector.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAA1wF4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T01:43:04.095Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "MercenarySlotManager.cs",
+              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Mercenary\\MercenarySlotManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Mercenary\\MercenarySlotManager.cs",
+              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Mercenary\\MercenarySlotManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Mercenary\\MercenarySlotManager.cs",
+              "ViewState": "AgIAABoBAAAAAAAAAAA0wD0BAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T03:41:49.575Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "DependencyInjector.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Utils\\DI\\DependencyInjector.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Utils\\DI\\DependencyInjector.cs",
@@ -209,64 +332,35 @@
               "RelativeToolTip": "Assets\\Scripts\\Utils\\DI\\DependencyInjector.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T07:24:26.371Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EnemyInstance.cs",
-              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Enemy\\EnemyInstance.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemyInstance.cs",
-              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Enemy\\EnemyInstance.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemyInstance.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAA0wFcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T01:13:38.579Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EntityClickDetector.cs",
-              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Entity\\EntityClickDetector.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Entity\\EntityClickDetector.cs",
-              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Entity\\EntityClickDetector.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Entity\\EntityClickDetector.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAA0wEQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T01:43:04.095Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "HpBarManager.cs",
-              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\HpBar\\HpBarManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\HpBar\\HpBarManager.cs",
-              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\HpBar\\HpBarManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\HpBar\\HpBarManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T02:42:22.146Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "StageManager.cs",
-              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Stage\\StageManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Stage\\StageManager.cs",
-              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Stage\\StageManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Stage\\StageManager.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAADwvzoAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T01:00:52.878Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-18T07:24:26.371Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "Charactersellmanager.cs",
+              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Store\\Charactersellmanager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Store\\Charactersellmanager.cs",
+              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Store\\Charactersellmanager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Store\\Charactersellmanager.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAA0wEUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T01:17:17.327Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StageConfig.cs",
+              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Stage\\StageConfig.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Stage\\StageConfig.cs",
+              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Stage\\StageConfig.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Stage\\StageConfig.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAA0wEUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T01:48:31.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "GameResultUI.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Stage\\GameResultUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Stage\\GameResultUI.cs",
@@ -274,51 +368,83 @@
               "RelativeToolTip": "Assets\\Scripts\\Stage\\GameResultUI.cs",
               "ViewState": "AgIAACMAAAAAAAAAAAAUwDcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T02:00:33.352Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-20T02:00:33.352Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "StageConfig.cs",
-              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Stage\\StageConfig.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Stage\\StageConfig.cs",
-              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Stage\\StageConfig.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Stage\\StageConfig.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAA0wDoAAAABAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "BossTimerUI.cs",
+              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Enemy\\BossTimerUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\BossTimerUI.cs",
+              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Enemy\\BossTimerUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy\\BossTimerUI.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA3wBEAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T01:48:31.362Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-21T02:20:56.103Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EggSellButton.cs",
-              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Store\\EggSellButton.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Store\\EggSellButton.cs",
-              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Store\\EggSellButton.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Store\\EggSellButton.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAA0wDEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T02:19:20.347Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 15,
               "Title": "EggPriceManager.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Store\\EggPriceManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Store\\EggPriceManager.cs",
               "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Store\\EggPriceManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Store\\EggPriceManager.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAA0wD4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAUwD4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T02:35:18.402Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-18T02:35:18.402Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
+              "Title": "EggSellButton.cs",
+              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Store\\EggSellButton.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Store\\EggSellButton.cs",
+              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Store\\EggSellButton.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Store\\EggSellButton.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAcwDEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T02:19:20.347Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "HpBarManager.cs",
+              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\HpBar\\HpBarManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\HpBar\\HpBarManager.cs",
+              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\HpBar\\HpBarManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\HpBar\\HpBarManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T02:42:22.146Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "EnemyInstance.cs",
+              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Enemy\\EnemyInstance.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemyInstance.cs",
+              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Enemy\\EnemyInstance.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemyInstance.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAA0wFcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T01:13:38.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "EnemySpawner.cs",
+              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Enemy\\EnemySpawner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemySpawner.cs",
+              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Enemy\\EnemySpawner.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemySpawner.cs",
+              "ViewState": "AgIAAHUAAAAAAAAAAAA0wJgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T02:42:41.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "RangeIndicator.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Mercenary\\RangeIndicator.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Mercenary\\RangeIndicator.cs",
@@ -326,12 +452,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Mercenary\\RangeIndicator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T03:32:43.172Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-18T03:32:43.172Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 21,
               "Title": "MergeButton.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Merge\\MergeButton.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Merge\\MergeButton.cs",
@@ -339,12 +464,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Merge\\MergeButton.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAIBBwCcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T07:24:43.926Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-18T07:24:43.926Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 22,
               "Title": "ChickenData.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Chicken\\ChickenData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Chicken\\ChickenData.cs",
@@ -352,12 +476,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Chicken\\ChickenData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T02:10:48.452Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-13T02:10:48.452Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 23,
               "Title": "Chicken.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Chicken\\Chicken.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Chicken\\Chicken.cs",
@@ -365,25 +488,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Chicken\\Chicken.cs",
               "ViewState": "AgIAAHYAAAAAAAAAAAA0wJkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T01:48:00.307Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-13T01:48:00.307Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "MercenarySlot.cs",
-              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Mercenary\\MercenarySlot.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Mercenary\\MercenarySlot.cs",
-              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Mercenary\\MercenarySlot.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Mercenary\\MercenarySlot.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T03:33:27.58Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 24,
               "Title": "EnemyRegistry.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Enemy\\EnemyRegistry.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemyRegistry.cs",
@@ -391,36 +500,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemyRegistry.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T07:26:16.894Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-18T07:26:16.894Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ChickenManager.cs",
-              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Chicken\\ChickenManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Chicken\\ChickenManager.cs",
-              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Chicken\\ChickenManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Chicken\\ChickenManager.cs",
-              "ViewState": "AgIAAKUAAAAAAAAAAAAwwLsAAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T02:19:40.531Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Charactersellmanager.cs",
-              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Store\\Charactersellmanager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Store\\Charactersellmanager.cs",
-              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Store\\Charactersellmanager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Store\\Charactersellmanager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T01:17:17.327Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 25,
               "Title": "CharacterSellButton.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Store\\CharacterSellButton.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Store\\CharacterSellButton.cs",
@@ -432,19 +516,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "MercenarySlotManager.cs",
-              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Mercenary\\MercenarySlotManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Mercenary\\MercenarySlotManager.cs",
-              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Mercenary\\MercenarySlotManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Mercenary\\MercenarySlotManager.cs",
-              "ViewState": "AgIAAKwAAAAAAAAAAADwv8cAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T03:41:49.575Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 26,
               "Title": "SellButton.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Store\\SellButton.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Store\\SellButton.cs",
@@ -455,7 +527,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 27,
               "Title": "EntityInfoData.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Entity\\EntityInfoData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entity\\EntityInfoData.cs",
@@ -467,7 +539,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 28,
               "Title": "EggInventory.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Store\\EggInventory.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Store\\EggInventory.cs",
@@ -479,19 +551,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "ResourceManager.cs",
-              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\ResourceManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ResourceManager.cs",
-              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\ResourceManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ResourceManager.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAA0wCcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T00:22:42.53Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 29,
               "Title": "MercenaryDragHandler.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Mercenary\\MercenaryDragHandler.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Mercenary\\MercenaryDragHandler.cs",
@@ -503,31 +563,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "MercenaryBase.cs",
-              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Mercenary\\MercenaryBase.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Mercenary\\MercenaryBase.cs",
-              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Mercenary\\MercenaryBase.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Mercenary\\MercenaryBase.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAA0wGYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T02:46:16.34Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "MergeManager.cs",
-              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Merge\\MergeManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Merge\\MergeManager.cs",
-              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Merge\\MergeManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Merge\\MergeManager.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAA0wD4AAABXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T07:24:38.444Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "StageManager.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\StageManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StageManager.cs",
@@ -538,19 +574,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "EntityInfoUI.cs",
-              "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Entity\\EntityInfoUI.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Entity\\EntityInfoUI.cs",
-              "ToolTip": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Entity\\EntityInfoUI.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Entity\\EntityInfoUI.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T02:54:51.259Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "EnumCollection.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Utils\\EnumCollection.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Utils\\EnumCollection.cs",
@@ -562,7 +586,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 45,
               "Title": "NullSelectionGuard.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Editor\\NullSelectionGuard.cs",
               "RelativeDocumentMoniker": "Assets\\Editor\\NullSelectionGuard.cs",
@@ -574,7 +598,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "WaveData.cs",
               "DocumentMoniker": "C:\\Users\\201\\Downloads\\files\\WaveData.cs",
               "ToolTip": "C:\\Users\\201\\Downloads\\files\\WaveData.cs",
@@ -584,7 +608,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "StageConfig.cs",
               "DocumentMoniker": "C:\\Users\\201\\Downloads\\files\\StageConfig.cs",
               "ToolTip": "C:\\Users\\201\\Downloads\\files\\StageConfig.cs",
@@ -594,7 +618,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "IClickableEntity.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Entity\\IClickableEntity.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entity\\IClickableEntity.cs",
@@ -606,7 +630,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "ObjectPool.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\ObjectPool\\ObjectPool.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ObjectPool\\ObjectPool.cs",
@@ -618,7 +642,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "HpBarInstance.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\HpBar\\HpBarInstance.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\HpBar\\HpBarInstance.cs",
@@ -630,7 +654,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "EnemyStatData.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Enemy\\EnemyStatData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemyStatData.cs",
@@ -642,7 +666,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "ChickenHpBarUI.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\Chicken\\ChickenHpBarUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Chicken\\ChickenHpBarUI.cs",
@@ -654,7 +678,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 42,
               "Title": "EnemySpawner.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\EnemySpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EnemySpawner.cs",
@@ -666,7 +690,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 43,
               "Title": "EffectManager.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\EffectManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EffectManager.cs",
@@ -678,7 +702,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 39,
               "Title": "IObjectPoolable.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\ObjectPool\\IObjectPoolable.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ObjectPool\\IObjectPoolable.cs",
@@ -690,7 +714,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 44,
               "Title": "HpBarManager.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\HpBarManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\HpBarManager.cs",
@@ -702,7 +726,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 41,
               "Title": "EnemyInstance.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\EnemyInstance.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EnemyInstance.cs",
@@ -714,7 +738,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 40,
               "Title": "GameManager.cs",
               "DocumentMoniker": "D:\\Unity\\MilkDefense\\MilkDefense\\Assets\\Scripts\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",

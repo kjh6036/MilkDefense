@@ -9,6 +9,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] private WaveData[] _designedWaves;
 
     [Header("UI")]
+    [SerializeField] private BossTimerUI _bossTimerUI;
     [SerializeField] private TextMeshProUGUI _waveText;
     [SerializeField] private TextMeshProUGUI _enemyCountText;
     [SerializeField] private TextMeshProUGUI _cooldownText;
@@ -17,11 +18,14 @@ public class StageManager : MonoBehaviour
     private int _currentWave = 0;
     private bool _isGameOver = false;
     private bool _isLastBossDefeated = false;
+    private bool _isSpawnComplete = false;
+    private bool _isBossDefeated = false;
     private Coroutine _waveRoutine;
     private Coroutine _bossTimerRoutine;
 
     private void Start()
     {
+        _bossTimerUI?.Hide();
         _enemySpawner.OnEnemyDied += HandleEnemyDied;
         _enemySpawner.OnEnemySpawned += HandleEnemySpawned;
         _enemySpawner.OnWaveSpawnComplete += HandleWaveSpawnComplete;
@@ -38,7 +42,6 @@ public class StageManager : MonoBehaviour
 
         if (_currentWave > _config.totalWaves)
         {
-            // 마지막 웨이브가 보스 웨이브가 아닌 경우 승리 처리
             if (!_config.IsBossWave(_config.totalWaves))
                 Victory();
             return;
@@ -50,28 +53,59 @@ public class StageManager : MonoBehaviour
 
     private IEnumerator WaveRoutine()
     {
-        WaveData designedWave = GetDesignedWave(_currentWave);
+        bool isBossWave = _config.IsBossWave(_currentWave);
 
+        // ─── 스폰 ─────────────────────────────────────────
+        _isSpawnComplete = false;
+        _isBossDefeated = false;
+
+        WaveData designedWave = GetDesignedWave(_currentWave);
         float hpMultiplier = _config.GetHpMultiplier(_currentWave);
 
         if (designedWave != null)
+        {
             _enemySpawner.StartWave(designedWave.entries, hpMultiplier);
+        }
+        else if (isBossWave)
+        {
+            int bossIndex = (_currentWave / _config.bossWaveInterval) - 1;
+            if (bossIndex >= 0 && bossIndex < _config.bossDataPerStage.Length)
+                _enemySpawner.StartWave(1, 0f, new[] { _config.bossDataPerStage[bossIndex] }, hpMultiplier);
+            else
+                Debug.LogError($"[StageManager] 보스 데이터 없음: index {bossIndex}");
+        }
         else
+        {
             _enemySpawner.StartWave(
                 _config.GetEnemyCount(_currentWave),
                 _config.GetSpawnInterval(_currentWave),
                 _config.enemyPool,
                 hpMultiplier
             );
+        }
 
-        yield return StartCoroutine(CooldownRoutine());
+        // ─── 대기 ─────────────────────────────────────────
+        if (isBossWave)
+        {
+            // 보스 처치까지 대기
+            yield return new WaitUntil(() => _isBossDefeated || _isGameOver);
+        }
+        else
+        {
+            // 스폰 완료까지 대기
+            yield return new WaitUntil(() => _isSpawnComplete || _isGameOver);
+        }
 
-        // 웨이브 클리어 보너스
+        if (_isGameOver) yield break;
+
+        // ─── 클리어 보너스 ────────────────────────────────
         int bonus = _config.GetWaveBonus(_currentWave);
-        if (_config.IsBossWave(_currentWave))
-            bonus += _config.bossClearBonus;
+        if (isBossWave) bonus += _config.bossClearBonus;
         DependencyInjector.Get<ResourceManager>().Earn(bonus);
         Debug.Log($"[StageManager] Wave {_currentWave} 클리어 보너스 +{bonus}G");
+
+        // ─── 쿨다운 ───────────────────────────────────────
+        yield return StartCoroutine(CooldownRoutine());
 
         DependencyInjector.Get<EggPriceManager>().RollPrices();
         StartNextWave();
@@ -97,17 +131,24 @@ public class StageManager : MonoBehaviour
     {
         float remaining = _config.bossTimeLimit;
 
+        yield return null;
+        EnemyInstance boss = FindBoss();
+        if (boss != null)
+            _bossTimerUI?.Show(boss.transform, remaining);
+
         while (remaining > 0f)
         {
-            if (_isLastBossDefeated) yield break;
-            _bossTimerText.text = $"보스 처치까지 {remaining:F0}초";
+            if (_isBossDefeated) yield break;
+            if (_bossTimerText != null) _bossTimerText.text = $"보스 처치까지 {remaining:F0}초";
+            _bossTimerUI?.UpdateText(remaining);
             yield return new WaitForSeconds(1f);
             remaining -= 1f;
         }
 
-        _bossTimerText.text = string.Empty;
+        if (_bossTimerText != null) _bossTimerText.text = string.Empty;
+        _bossTimerUI?.Hide();
 
-        if (!_isLastBossDefeated)
+        if (!_isBossDefeated)
             GameOver();
     }
 
@@ -119,12 +160,15 @@ public class StageManager : MonoBehaviour
 
     private void HandleBossDied()
     {
+        _isBossDefeated = true;
+
         if (_bossTimerRoutine != null)
         {
             StopCoroutine(_bossTimerRoutine);
             _bossTimerRoutine = null;
         }
-        _bossTimerText.text = string.Empty;
+        if (_bossTimerText != null) _bossTimerText.text = string.Empty;
+        _bossTimerUI?.Hide();
 
         if (_config.IsLastWave(_currentWave))
         {
@@ -133,10 +177,21 @@ public class StageManager : MonoBehaviour
         }
     }
 
+    private EnemyInstance FindBoss()
+    {
+        var registry = DependencyInjector.Get<EnemyRegistry>();
+        if (registry == null) return null;
+        foreach (var enemy in registry.ActiveEnemies)
+            if (enemy.StatData.enemyType == EnemyType.Boss)
+                return enemy;
+        return null;
+    }
+
     // ─── 적 처치 / 게임오버 체크 ──────────────────────────
 
     private void HandleWaveSpawnComplete()
     {
+        _isSpawnComplete = true;
         Debug.Log($"[StageManager] Wave {_currentWave} 스폰 완료");
     }
 
@@ -157,7 +212,6 @@ public class StageManager : MonoBehaviour
         if (_enemySpawner.ActiveEnemyCount >= _config.gameOverEnemyLimit)
             GameOver();
     }
-
 
     // ─── 승리 / 패배 ──────────────────────────────────────
 

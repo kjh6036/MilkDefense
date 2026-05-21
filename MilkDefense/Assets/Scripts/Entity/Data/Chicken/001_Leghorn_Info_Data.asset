@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EntityInfoData
   entityName: "\uB808\uADF8\uD63C"
   description: "\uB300\uD45C\uC801\uC778 \uC0B0\uB780\uACC4 \uD488\uC885\uC785\uB2C8\uB2E4\n\uB2EC\uAC40\uC744
-    \uB354 \uB9CE\uC774 \uB0B3\uC2B5\uB2C8\uB2E4"
+    \uB354 \uBE68\uB9AC \uB0B3\uC2B5\uB2C8\uB2E4"
   icon: {fileID: 5336855417275088078, guid: bf90bb19158cfa749b21b483015219af, type: 3}

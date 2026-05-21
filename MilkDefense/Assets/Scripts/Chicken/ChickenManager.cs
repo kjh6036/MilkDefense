@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class ChickenGachaWeight
@@ -18,9 +20,10 @@ public class ChickenManager : MonoBehaviour
     [Header("시작 시 배치 닭 수")]
     [SerializeField] private int _startChickenCount = 3;
 
-    [Header("가챠 비용")]
-    [SerializeField] private int _gachaBaseCost = 200;
-    [SerializeField] private int _gachaCostIncrement = 100;
+    [Header("가챠")]
+    [SerializeField] private int _gachaCost = 300;
+    [SerializeField] private Button _gachaButton;
+    [SerializeField] private Button _limitUpgradeButton;
 
     [Header("등급별 뽑기 가중치")]
     [SerializeField]
@@ -31,7 +34,7 @@ public class ChickenManager : MonoBehaviour
         new ChickenGachaWeight { grade = Grade.Rare,     weight = 5f  },
     };
 
-    private const int LimitUpgradeCost = 200;
+    [SerializeField] private int _limitUpgradeCost = 500;
     private const int MaxChickenLimit = 10;
 
     private Dictionary<ChickenData, ObjectPool<Chicken>> _pools;
@@ -39,11 +42,12 @@ public class ChickenManager : MonoBehaviour
     private readonly List<Chicken> _allChickens = new List<Chicken>();
     private readonly List<Chicken> _activeChickens = new List<Chicken>();
     private int _chickenLimit = 5;
-    private int _gachaPullCount = 0;
+    private TextMeshProUGUI _gachaButtonText;
+    private TextMeshProUGUI _limitUpgradeButtonText;
 
     public int ChickenCount => _activeChickens.Count;
     public int ChickenLimit => _chickenLimit;
-    public int GachaCost => _gachaBaseCost + _gachaCostIncrement * _gachaPullCount;
+    public int GachaCost => _gachaCost;
 
     private void Awake()
     {
@@ -63,6 +67,18 @@ public class ChickenManager : MonoBehaviour
             if (!_dataByGrade.ContainsKey(data.grade))
                 _dataByGrade[data.grade] = new List<ChickenData>();
             _dataByGrade[data.grade].Add(data);
+        }
+
+        if (_gachaButton != null)
+        {
+            _gachaButtonText = _gachaButton.GetComponentInChildren<TextMeshProUGUI>();
+            UpdateGachaButtonUI();
+        }
+
+        if (_limitUpgradeButton != null)
+        {
+            _limitUpgradeButtonText = _limitUpgradeButton.GetComponentInChildren<TextMeshProUGUI>();
+            UpdateLimitUpgradeButtonUI();
         }
     }
 
@@ -93,9 +109,8 @@ public class ChickenManager : MonoBehaviour
             return;
         }
 
-        int cost = GachaCost;
         var resourceManager = DependencyInjector.Get<ResourceManager>();
-        if (!resourceManager.TrySpend(cost))
+        if (!resourceManager.TrySpend(_gachaCost))
         {
             Debug.Log("[ChickenManager] 돈이 부족합니다.");
             return;
@@ -105,13 +120,11 @@ public class ChickenManager : MonoBehaviour
         if (data == null)
         {
             Debug.LogError("[ChickenManager] 뽑기 결과가 없습니다.");
-            resourceManager.Earn(cost);
+            resourceManager.Earn(_gachaCost);
             return;
         }
 
-        _gachaPullCount++;
         SpawnChicken(data);
-        Debug.Log($"[ChickenManager] 가챠 {_gachaPullCount}회 — 다음 비용: {GachaCost}G");
     }
 
     public void PurchaseChickenLimitButton()
@@ -122,7 +135,7 @@ public class ChickenManager : MonoBehaviour
             return;
         }
 
-        int cost = _chickenLimit * LimitUpgradeCost;
+        int cost = (_chickenLimit - 4) * _limitUpgradeCost;
 
         if (!DependencyInjector.Get<ResourceManager>().TrySpend(cost))
         {
@@ -131,20 +144,31 @@ public class ChickenManager : MonoBehaviour
         }
 
         _chickenLimit++;
+        UpdateLimitUpgradeButtonUI();
         Debug.Log($"[ChickenManager] 한도 업그레이드 -> {_chickenLimit}칸");
     }
 
-    private ChickenData RollChicken()
+    private ChickenData RollChicken(int maxRetry = 10)
     {
-        Grade grade = RollGrade();
-
-        if (!_dataByGrade.TryGetValue(grade, out var candidates) || candidates.Count == 0)
+        for (int i = 0; i < maxRetry; i++)
         {
-            Debug.LogWarning($"[ChickenManager] {grade} 등급 닭이 없습니다.");
-            return null;
+            Grade grade = RollGrade();
+
+            if (!_dataByGrade.TryGetValue(grade, out var candidates) || candidates.Count == 0)
+            {
+                Debug.Log($"[ChickenManager] {grade} 등급 닭 없음 - 재추첨 ({i + 1}/{maxRetry})");
+                continue;
+            }
+
+            return candidates[Random.Range(0, candidates.Count)];
         }
 
-        return candidates[Random.Range(0, candidates.Count)];
+        // 재추첨 실패 시 존재하는 등급 중 랜덤 반환
+        Debug.LogWarning("[ChickenManager] 재추첨 한도 초과 - 보유 등급 중 랜덤 선택");
+        var fallback = new System.Collections.Generic.List<ChickenData>();
+        foreach (var list in _dataByGrade.Values)
+            fallback.AddRange(list);
+        return fallback.Count > 0 ? fallback[Random.Range(0, fallback.Count)] : null;
     }
 
     private Grade RollGrade()
@@ -164,6 +188,21 @@ public class ChickenManager : MonoBehaviour
         return Grade.Common;
     }
 
+    private void UpdateGachaButtonUI()
+    {
+        if (_gachaButtonText != null)
+            _gachaButtonText.text = $"닭 구매\n{_gachaCost}G";
+    }
+
+    private void UpdateLimitUpgradeButtonUI()
+    {
+        if (_limitUpgradeButtonText == null) return;
+        if (_chickenLimit >= MaxChickenLimit)
+            _limitUpgradeButtonText.text = "슬롯 확장\n최대";
+        else
+            _limitUpgradeButtonText.text = $"슬롯 확장\n{(_chickenLimit - 4) * _limitUpgradeCost}G";
+    }
+
     // ─── 판매 ─────────────────────────────────────────────
 
     public void Sell(Chicken chicken)
@@ -176,7 +215,11 @@ public class ChickenManager : MonoBehaviour
 
     public List<Chicken> FindMergeables(ChickenData data, int level)
     {
-        return _activeChickens.FindAll(c => c.Data == data && c.Level == level);
+        // 에픽은 같은 레벨의 모든 닭과 머지 가능 (와일드카드)
+        return _activeChickens.FindAll(c =>
+            c.Level == level &&
+            (c.Data == data || c.Data.grade == Grade.Epic || data.grade == Grade.Epic)
+        );
     }
 
     public void Merge(List<Chicken> targets, Vector3 spawnPos)

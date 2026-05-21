@@ -30,11 +30,13 @@ public class StageConfig : ScriptableObject
     [Tooltip("스폰 간격 (초)")]
     public float baseSpawnInterval = 1f;
 
-    [Tooltip("웨이브마다 스폰 간격 감소량 (최소 0.2초)")]
-    public float spawnIntervalDecreasePerWave = 0.02f;
 
     [Tooltip("일반 웨이브에서 사용할 적 목록")]
     public EnemyStatData[] enemyPool;
+
+    [Header("보스")]
+    [Tooltip("보스 웨이브별 보스 데이터 (index 0 = 1보스, 1 = 2보스...)")]
+    public EnemyStatData[] bossDataPerStage;
 
     [Header("웨이브 클리어 보너스")]
     [Tooltip("매 웨이브 클리어 시 기본 보너스")]
@@ -55,8 +57,7 @@ public class StageConfig : ScriptableObject
     public int GetEnemyCount(int wave)
         => baseEnemyCount + enemyCountPerWave * (wave - 1);
 
-    public float GetSpawnInterval(int wave)
-        => Mathf.Max(0.2f, baseSpawnInterval - spawnIntervalDecreasePerWave * (wave - 1));
+    public float GetSpawnInterval(int wave) => baseSpawnInterval;
 
     public float GetHpMultiplier(int wave)
         => baseHpMultiplier + hpMultiplierPerWave * (wave - 1);

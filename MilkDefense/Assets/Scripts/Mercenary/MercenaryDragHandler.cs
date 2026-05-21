@@ -3,6 +3,7 @@ using UnityEngine;
 public class MercenaryDragHandler : MonoBehaviour
 {
     [SerializeField] private RangeIndicator _rangeIndicator;
+    [SerializeField] private LayerMask _draggableLayer;
 
     private MercenaryBase _mercenary;
     private Camera _mainCamera;
@@ -19,8 +20,11 @@ public class MercenaryDragHandler : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            // Slot이 없으면 드래그 불가
+            if (_mercenary.Slot == null) return;
+
             Vector2 worldPos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(worldPos, Vector2.zero);
+            RaycastHit2D hit = Physics2D.Raycast(worldPos, Vector2.zero, Mathf.Infinity, _draggableLayer);
 
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
@@ -32,14 +36,18 @@ public class MercenaryDragHandler : MonoBehaviour
 
         if (Input.GetMouseButton(0) && _isDragging)
         {
+            if (_mercenary.Slot == null) { CancelDrag(); return; }
+
             Vector3 worldPos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
             worldPos.z = 0f;
-            _mercenary.Slot?.UpdateDragPosition(worldPos + _dragOffset);
+            _mercenary.Slot.UpdateDragPosition(worldPos + _dragOffset);
         }
 
         if (Input.GetMouseButtonUp(0) && _isDragging)
         {
             _isDragging = false;
+
+            if (_mercenary.Slot == null) return;
 
             Vector2 worldPos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
             MercenarySlot fromSlot = _mercenary.Slot;
@@ -56,5 +64,16 @@ public class MercenaryDragHandler : MonoBehaviour
                 _rangeIndicator?.Show(fromSlot.transform.position, _mercenary.Data.attackRange);
             }
         }
+    }
+
+    private void CancelDrag()
+    {
+        _isDragging = false;
+        _mercenary.Slot?.ResetPositions();
+    }
+
+    private void OnDisable()
+    {
+        _isDragging = false;
     }
 }

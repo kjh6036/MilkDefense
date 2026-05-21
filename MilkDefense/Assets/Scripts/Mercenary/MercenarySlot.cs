@@ -8,8 +8,8 @@ public class MercenarySlot : MonoBehaviour
     private static readonly Vector3[] StackOffsets = new Vector3[]
     {
         new Vector3( 0f,    0f,   0f),
-        new Vector3(-0.1f,  0.1f, 0f),
-        new Vector3( 0.1f, -0.1f, 0f),
+        new Vector3(-0.25f, 0.2f, 0f),
+        new Vector3( 0.25f,-0.2f, 0f),
     };
 
     private readonly List<MercenaryBase> _mercenaries = new List<MercenaryBase>();
@@ -32,6 +32,13 @@ public class MercenarySlot : MonoBehaviour
         mercenary.transform.position = transform.position + StackOffsets[index];
         mercenary.SetSlot(this);
         mercenary.gameObject.SetActive(true);
+        ApplySortingOrder(mercenary, index);
+    }
+
+    private void ApplySortingOrder(MercenaryBase mercenary, int index)
+    {
+        foreach (var sr in mercenary.GetComponentsInChildren<SpriteRenderer>())
+            sr.sortingOrder = index;
     }
 
     // 비활성화 포함 제거 (풀 반환용)
@@ -48,6 +55,8 @@ public class MercenarySlot : MonoBehaviour
     public List<MercenaryBase> DetachAll()
     {
         var detached = new List<MercenaryBase>(_mercenaries);
+        foreach (var m in _mercenaries)
+            m.SetSlot(null);
         _mercenaries.Clear();
         return detached;
     }
@@ -78,6 +87,9 @@ public class MercenarySlot : MonoBehaviour
     public void ResetPositions()
     {
         for (int i = 0; i < _mercenaries.Count; i++)
+        {
             _mercenaries[i].transform.position = transform.position + StackOffsets[i];
+            ApplySortingOrder(_mercenaries[i], i);
+        }
     }
 }

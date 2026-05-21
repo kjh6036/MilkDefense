@@ -33,6 +33,7 @@ public class CharacterSellManager : MonoBehaviour
         Debug.Log($"[CharacterSellManager] ExecuteChickenSell 실행");
         DependencyInjector.Get<ChickenManager>().Sell(chicken);
         DependencyInjector.Get<ResourceManager>().Earn(price);
+        DependencyInjector.Get<EntityClickDetector>().HideAll();
         Debug.Log($"[CharacterSellManager] 닭 {chicken.Data.infoData.entityName} 판매 → {price}G");
     }
 
@@ -50,6 +51,7 @@ public class CharacterSellManager : MonoBehaviour
         Debug.Log($"[CharacterSellManager] ExecuteMercenarySell 실행");
         DependencyInjector.Get<MercenarySlotManager>().Sell(mercenary);
         DependencyInjector.Get<ResourceManager>().Earn(price);
+        DependencyInjector.Get<EntityClickDetector>().HideAll();
         Debug.Log($"[CharacterSellManager] 용병 {mercenary.Data.mercenaryName} 판매 → {price}G");
     }
 

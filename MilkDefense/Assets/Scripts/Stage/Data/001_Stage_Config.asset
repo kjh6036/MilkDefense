@@ -19,9 +19,17 @@ MonoBehaviour:
   bossTimeLimit: 60
   baseEnemyCount: 50
   enemyCountPerWave: 1
-  baseSpawnInterval: 1
-  spawnIntervalDecreasePerWave: 0.02
+  baseSpawnInterval: 0.3
   enemyPool:
   - {fileID: 11400000, guid: be7d3fc12c244d549af35db1aea94483, type: 2}
+  bossDataPerStage:
+  - {fileID: 11400000, guid: 526589c750cffdc4ea2e9e1ac494e754, type: 2}
+  - {fileID: 11400000, guid: 526589c750cffdc4ea2e9e1ac494e754, type: 2}
+  - {fileID: 11400000, guid: 526589c750cffdc4ea2e9e1ac494e754, type: 2}
+  - {fileID: 11400000, guid: 526589c750cffdc4ea2e9e1ac494e754, type: 2}
+  - {fileID: 11400000, guid: 526589c750cffdc4ea2e9e1ac494e754, type: 2}
+  waveBaseBonus: 10
+  waveBonusPerWave: 2
+  bossClearBonus: 50
   baseHpMultiplier: 1
-  hpMultiplierPerWave: 0.2
+  hpMultiplierPerWave: 0.15
