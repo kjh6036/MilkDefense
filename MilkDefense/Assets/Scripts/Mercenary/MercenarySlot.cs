@@ -34,6 +34,7 @@ public class MercenarySlot : MonoBehaviour
         mercenary.gameObject.SetActive(true);
     }
 
+    // 비활성화 포함 제거 (풀 반환용)
     public List<MercenaryBase> RemoveAll()
     {
         var removed = new List<MercenaryBase>(_mercenaries);
@@ -41,6 +42,14 @@ public class MercenarySlot : MonoBehaviour
             m.gameObject.SetActive(false);
         _mercenaries.Clear();
         return removed;
+    }
+
+    // 비활성화 없이 참조만 제거 (재정렬용)
+    public List<MercenaryBase> DetachAll()
+    {
+        var detached = new List<MercenaryBase>(_mercenaries);
+        _mercenaries.Clear();
+        return detached;
     }
 
     public IReadOnlyList<MercenaryBase> GetMercenaries() => _mercenaries;
@@ -53,21 +62,19 @@ public class MercenarySlot : MonoBehaviour
 
     public void SwapWith(MercenarySlot other)
     {
-        var myMercs = RemoveAll();
-        var otherMercs = other.RemoveAll();
+        var myMercs = DetachAll();
+        var otherMercs = other.DetachAll();
 
         foreach (var m in otherMercs) Add(m);
         foreach (var m in myMercs) other.Add(m);
     }
 
-    // 드래그 중 용병 위치 업데이트
     public void UpdateDragPosition(Vector3 worldPos)
     {
         foreach (var m in _mercenaries)
             m.transform.position = worldPos;
     }
 
-    // 드래그 취소 시 원위치
     public void ResetPositions()
     {
         for (int i = 0; i < _mercenaries.Count; i++)

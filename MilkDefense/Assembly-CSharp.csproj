@@ -74,15 +74,16 @@
     <Compile Include="Assets\Scripts\Merge\MergeManager.cs" />
     <Compile Include="Assets\Scripts\Mercenary\RangeIndicator.cs" />
     <Compile Include="Assets\Scripts\Chicken\ChickenData.cs" />
-    <Compile Include="Assets\Scripts\Store\SellButton.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyStatData.cs" />
     <Compile Include="Assets\Scripts\Mercenary\MercenarySlotManager.cs" />
     <Compile Include="Assets\Scripts\HpBar\HpBarInstance.cs" />
     <Compile Include="Assets\Scripts\Mercenary\RangedMercenary.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\TopDownCharacterController.cs" />
+    <Compile Include="Assets\Scripts\Store\EggSellButton.cs" />
     <Compile Include="Assets\Scripts\Utils\EnumCollection.cs" />
     <Compile Include="Assets\Scripts\Mercenary\MeleeMercenary.cs" />
+    <Compile Include="Assets\Scripts\Store\CharacterSellButton.cs" />
     <Compile Include="Assets\Scripts\Utils\DI\DISetting.cs" />
     <Compile Include="Assets\Scripts\Store\EggInventory.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityInfoData.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Assets\Scripts\Effect\EffectManager.cs" />
     <Compile Include="Assets\Scripts\Stage\StageConfig.cs" />
     <Compile Include="Assets\Scripts\ObjectPool\IObjectPoolable.cs" />
+    <Compile Include="Assets\Scripts\Stage\GameResultUI.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Stage\StageManager.cs" />
     <Compile Include="Assets\Bolt 2D JellyFarm VE2\ReadMe\Scripts\ReadmeVE2.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="Assets\Scripts\Entity\EntityInfoUI.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\StairsLayerTrigger.cs" />
     <Compile Include="Assets\Scripts\Store\EggPriceManager.cs" />
+    <Compile Include="Assets\Scripts\Store\Charactersellmanager.cs" />
     <Compile Include="Assets\Scripts\Mercenary\MercenarySlot.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -14,10 +14,13 @@ public class MercenarySlotManager : MonoBehaviour
     [SerializeField] private MercenarySlot[] _slots;
     [SerializeField] private MercenaryStatData[] _mercenaryDataList;
     [SerializeField] private int preloadCountPerType = 3;
-    [SerializeField] private int _gachaCost = 100;
 
     [Tooltip("이 거리 이상이면 슬롯으로 인식하지 않음")]
     [SerializeField] private float _slotSnapDistance = 1f;
+
+    [Header("가챠 비용")]
+    [SerializeField] private int _gachaBaseCost = 50;
+    [SerializeField] private int _gachaCostIncrement = 2;
 
     [Header("등급별 뽑기 가중치")]
     [SerializeField]
@@ -31,6 +34,9 @@ public class MercenarySlotManager : MonoBehaviour
 
     private Dictionary<MercenaryStatData, ObjectPool<MercenaryBase>> _pools;
     private Dictionary<Grade, List<MercenaryStatData>> _dataByGrade;
+    private int _gachaPullCount = 0;
+
+    public int GachaCost => _gachaBaseCost + _gachaCostIncrement * _gachaPullCount;
 
     private void Awake()
     {
@@ -62,8 +68,9 @@ public class MercenarySlotManager : MonoBehaviour
 
     public void TryGacha()
     {
+        int cost = GachaCost;
         var resourceManager = DependencyInjector.Get<ResourceManager>();
-        if (!resourceManager.TrySpend(_gachaCost))
+        if (!resourceManager.TrySpend(cost))
         {
             Debug.Log("[MercenarySlotManager] 돈이 부족합니다.");
             return;
@@ -73,7 +80,7 @@ public class MercenarySlotManager : MonoBehaviour
         if (data == null)
         {
             Debug.LogError("[MercenarySlotManager] 뽑기 결과가 없습니다.");
-            resourceManager.Earn(_gachaCost);
+            resourceManager.Earn(cost);
             return;
         }
 
@@ -81,7 +88,7 @@ public class MercenarySlotManager : MonoBehaviour
         if (slot == null)
         {
             Debug.Log("[MercenarySlotManager] 배치 가능한 슬롯이 없습니다.");
-            resourceManager.Earn(_gachaCost);
+            resourceManager.Earn(cost);
             return;
         }
 
@@ -93,7 +100,8 @@ public class MercenarySlotManager : MonoBehaviour
         mercenary.Initialize(data);
         slot.Add(mercenary);
 
-        Debug.Log($"[MercenarySlotManager] {data.grade} 등급 {data.mercenaryName} 획득");
+        _gachaPullCount++;
+        Debug.Log($"[MercenarySlotManager] {data.grade} 등급 {data.mercenaryName} 획득 — 다음 비용: {GachaCost}G");
     }
 
     private MercenaryStatData RollMercenary()
@@ -126,6 +134,15 @@ public class MercenarySlotManager : MonoBehaviour
         return Grade.Common;
     }
 
+    // ─── 판매 ─────────────────────────────────────────────
+
+    public void Sell(MercenaryBase mercenary)
+    {
+        mercenary.Slot?.RemoveMercenary(mercenary);
+        mercenary.gameObject.SetActive(false);
+        Rearrange();
+    }
+
     // ─── 머지 ─────────────────────────────────────────────
 
     public List<MercenaryBase> FindMergeables(MercenaryStatData data)
@@ -151,6 +168,7 @@ public class MercenarySlotManager : MonoBehaviour
         if (!_dataByGrade.TryGetValue(nextGrade, out var candidates) || candidates.Count == 0)
         {
             Debug.LogWarning($"[MercenarySlotManager] 머지 결과 {nextGrade} 등급 용병이 없습니다.");
+            Rearrange();
             return;
         }
 
@@ -164,7 +182,55 @@ public class MercenarySlotManager : MonoBehaviour
         newMercenary.Initialize(newData);
         targetSlot.Add(newMercenary);
 
+        Rearrange();
         Debug.Log($"[MercenarySlotManager] 머지 완료 -> {newData.grade} 등급 {newData.mercenaryName}");
+    }
+
+    // ─── 재정렬 ───────────────────────────────────────────
+
+    private void Rearrange()
+    {
+        var all = new List<MercenaryBase>();
+        foreach (var slot in _slots)
+        {
+            all.AddRange(slot.GetMercenaries());
+            slot.DetachAll();
+        }
+
+        foreach (var mercenary in all)
+        {
+            MercenarySlot target = null;
+
+            foreach (var slot in _slots)
+            {
+                if (slot.CanStack(mercenary.Data) && !slot.IsEmpty)
+                {
+                    target = slot;
+                    break;
+                }
+            }
+
+            if (target == null)
+            {
+                foreach (var slot in _slots)
+                {
+                    if (slot.IsEmpty)
+                    {
+                        target = slot;
+                        break;
+                    }
+                }
+            }
+
+            if (target == null)
+            {
+                Debug.LogWarning("[MercenarySlotManager] 재정렬 중 배치할 슬롯이 없습니다.");
+                mercenary.gameObject.SetActive(false);
+                continue;
+            }
+
+            target.Add(mercenary);
+        }
     }
 
     // ─── 드래그 ───────────────────────────────────────────

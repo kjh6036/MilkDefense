@@ -21,12 +21,13 @@ public static class DependencyInjector
         _registry.Remove(script.GetType());
     }
 
-    public static T Get<T>() where T : MonoBehaviour
+    public static T Get<T>(bool suppressWarning = false) where T : MonoBehaviour
     {
         if (_registry.TryGetValue(typeof(T), out var script))
             return (T)script;
 
-        Debug.LogWarning($"[DependencyInjector] {typeof(T).Name} 이 등록되지 않았습니다.");
+        if (!suppressWarning)
+            Debug.LogWarning($"[DependencyInjector] {typeof(T).Name} 이 등록되지 않았습니다.");
         return null;
     }
 }

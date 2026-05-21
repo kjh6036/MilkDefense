@@ -33,7 +33,7 @@ public class Chicken : MonoBehaviour, IClickableEntity, IObjectPoolable
         canRecyclable = true;
         StopRegen();
         if (_hpBar == null) return;
-        DependencyInjector.Get<HpBarManager>()?.Release(transform);
+        DependencyInjector.Get<HpBarManager>(suppressWarning: true)?.Release(transform);
         _hpBar = null;
     }
 

@@ -14,10 +14,13 @@ public class ChickenManager : MonoBehaviour
     [SerializeField] private ChickenData[] chickenDataList;
     [SerializeField] private Transform[] chickenSlots;
     [SerializeField] private int preloadCountPerType = 3;
-    [SerializeField] private int _gachaCost = 50;
 
     [Header("시작 시 배치 닭 수")]
     [SerializeField] private int _startChickenCount = 3;
+
+    [Header("가챠 비용")]
+    [SerializeField] private int _gachaBaseCost = 200;
+    [SerializeField] private int _gachaCostIncrement = 100;
 
     [Header("등급별 뽑기 가중치")]
     [SerializeField]
@@ -36,9 +39,11 @@ public class ChickenManager : MonoBehaviour
     private readonly List<Chicken> _allChickens = new List<Chicken>();
     private readonly List<Chicken> _activeChickens = new List<Chicken>();
     private int _chickenLimit = 5;
+    private int _gachaPullCount = 0;
 
     public int ChickenCount => _activeChickens.Count;
     public int ChickenLimit => _chickenLimit;
+    public int GachaCost => _gachaBaseCost + _gachaCostIncrement * _gachaPullCount;
 
     private void Awake()
     {
@@ -88,8 +93,9 @@ public class ChickenManager : MonoBehaviour
             return;
         }
 
+        int cost = GachaCost;
         var resourceManager = DependencyInjector.Get<ResourceManager>();
-        if (!resourceManager.TrySpend(_gachaCost))
+        if (!resourceManager.TrySpend(cost))
         {
             Debug.Log("[ChickenManager] 돈이 부족합니다.");
             return;
@@ -99,11 +105,13 @@ public class ChickenManager : MonoBehaviour
         if (data == null)
         {
             Debug.LogError("[ChickenManager] 뽑기 결과가 없습니다.");
-            resourceManager.Earn(_gachaCost);
+            resourceManager.Earn(cost);
             return;
         }
 
+        _gachaPullCount++;
         SpawnChicken(data);
+        Debug.Log($"[ChickenManager] 가챠 {_gachaPullCount}회 — 다음 비용: {GachaCost}G");
     }
 
     public void PurchaseChickenLimitButton()
@@ -156,6 +164,14 @@ public class ChickenManager : MonoBehaviour
         return Grade.Common;
     }
 
+    // ─── 판매 ─────────────────────────────────────────────
+
+    public void Sell(Chicken chicken)
+    {
+        chicken.gameObject.SetActive(false);
+        _activeChickens.Remove(chicken);
+    }
+
     // ─── 머지 ─────────────────────────────────────────────
 
     public List<Chicken> FindMergeables(ChickenData data, int level)
@@ -186,6 +202,24 @@ public class ChickenManager : MonoBehaviour
 
     // ─── 스폰 ─────────────────────────────────────────────
 
+    private Transform FindEmptySlot()
+    {
+        foreach (var slot in chickenSlots)
+        {
+            bool occupied = false;
+            foreach (var c in _activeChickens)
+            {
+                if (c.transform.position == slot.position)
+                {
+                    occupied = true;
+                    break;
+                }
+            }
+            if (!occupied) return slot;
+        }
+        return null;
+    }
+
     private void SpawnChicken(ChickenData data)
     {
         var pool = _pools[data];
@@ -194,8 +228,12 @@ public class ChickenManager : MonoBehaviour
             ? pool.GetRecycledObject()
             : CreateAndRegister(data, pool);
 
-        int index = _activeChickens.Count;
-        Transform slot = chickenSlots[index];
+        Transform slot = FindEmptySlot();
+        if (slot == null)
+        {
+            Debug.LogError("[ChickenManager] 비어있는 슬롯이 없습니다.");
+            return;
+        }
 
         chicken.transform.position = slot.position;
         chicken.gameObject.SetActive(true);

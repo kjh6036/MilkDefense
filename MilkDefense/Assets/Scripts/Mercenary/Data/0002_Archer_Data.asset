@@ -16,7 +16,7 @@ MonoBehaviour:
   mercenaryType: 1
   grade: 1
   prefab: {fileID: 6156476627956180046, guid: 5f4955f2f6e9c0e45ad0e4086e94f964, type: 3}
-  attackDamage: 4
+  attackDamage: 13
   attackRange: 5
-  attackCooldown: 1
+  attackCooldown: 0.9
   purchaseCost: 0

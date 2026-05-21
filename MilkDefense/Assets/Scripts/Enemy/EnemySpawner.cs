@@ -10,7 +10,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int preloadCountPerType = 5;
 
     public event Action OnEnemyDied;
+    public event Action OnEnemySpawned;
     public event Action OnWaveSpawnComplete;
+    public event Action OnBossSpawned;
+    public event Action OnBossDied;
 
     public int ActiveEnemyCount => DependencyInjector.Get<EnemyRegistry>().ActiveEnemies.Count;
 
@@ -32,16 +35,16 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public void StartWave(int totalCount, float spawnInterval, EnemyStatData[] pool)
+    public void StartWave(int totalCount, float spawnInterval, EnemyStatData[] pool, float hpMultiplier = 1f)
     {
         if (_spawnRoutine != null) StopCoroutine(_spawnRoutine);
-        _spawnRoutine = StartCoroutine(SpawnRoutine(totalCount, spawnInterval, pool));
+        _spawnRoutine = StartCoroutine(SpawnRoutine(totalCount, spawnInterval, pool, hpMultiplier));
     }
 
-    public void StartWave(WaveEnemyEntry[] entries)
+    public void StartWave(WaveEnemyEntry[] entries, float hpMultiplier = 1f)
     {
         if (_spawnRoutine != null) StopCoroutine(_spawnRoutine);
-        _spawnRoutine = StartCoroutine(SpawnRoutine(entries));
+        _spawnRoutine = StartCoroutine(SpawnRoutine(entries, hpMultiplier));
     }
 
     public void StopSpawning()
@@ -53,25 +56,25 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private IEnumerator SpawnRoutine(int totalCount, float spawnInterval, EnemyStatData[] pool)
+    private IEnumerator SpawnRoutine(int totalCount, float spawnInterval, EnemyStatData[] pool, float hpMultiplier)
     {
         for (int i = 0; i < totalCount; i++)
         {
             var data = pool[UnityEngine.Random.Range(0, pool.Length)];
-            SpawnEnemy(data);
+            SpawnEnemy(data, hpMultiplier);
             yield return new WaitForSeconds(spawnInterval);
         }
 
         OnWaveSpawnComplete?.Invoke();
     }
 
-    private IEnumerator SpawnRoutine(WaveEnemyEntry[] entries)
+    private IEnumerator SpawnRoutine(WaveEnemyEntry[] entries, float hpMultiplier)
     {
         foreach (var entry in entries)
         {
             for (int i = 0; i < entry.count; i++)
             {
-                SpawnEnemy(entry.enemyData);
+                SpawnEnemy(entry.enemyData, hpMultiplier);
                 yield return new WaitForSeconds(entry.spawnInterval);
             }
         }
@@ -79,7 +82,7 @@ public class EnemySpawner : MonoBehaviour
         OnWaveSpawnComplete?.Invoke();
     }
 
-    private void SpawnEnemy(EnemyStatData data)
+    private void SpawnEnemy(EnemyStatData data, float hpMultiplier = 1f)
     {
         if (!_pools.TryGetValue(data, out var pool))
         {
@@ -92,7 +95,12 @@ public class EnemySpawner : MonoBehaviour
             : CreateAndRegister(data, pool);
 
         enemy.gameObject.SetActive(true);
-        enemy.Initialize(data, waypoints);
+        enemy.Initialize(data, waypoints, hpMultiplier);
+
+        OnEnemySpawned?.Invoke();
+
+        if (data.enemyType == EnemyType.Boss)
+            OnBossSpawned?.Invoke();
     }
 
     private EnemyInstance CreateAndRegister(EnemyStatData data, ObjectPool<EnemyInstance> pool)
@@ -108,9 +116,14 @@ public class EnemySpawner : MonoBehaviour
         return enemy;
     }
 
-    private void HandleEnemyDied()
+    private void HandleEnemyDied(EnemyInstance enemy)
     {
+        DependencyInjector.Get<ResourceManager>()?.Earn(enemy.StatData.reward);
+
         OnEnemyDied?.Invoke();
+
+        if (enemy.StatData.enemyType == EnemyType.Boss)
+            OnBossDied?.Invoke();
     }
 
 #if UNITY_EDITOR

@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cbd295f1e4ac2f428b77ab9859f2ecf, type: 3}
   m_Name: 001_Stage_Config
   m_EditorClassIdentifier: Assembly-CSharp::StageConfig
-  totalWaves: 10
+  totalWaves: 50
   waveCooldown: 10
   gameOverEnemyLimit: 100
-  bossWaveInterval: 15
-  baseEnemyCount: 10
-  enemyCountPerWave: 3
+  bossWaveInterval: 10
+  bossTimeLimit: 60
+  baseEnemyCount: 50
+  enemyCountPerWave: 1
   baseSpawnInterval: 1
   spawnIntervalDecreasePerWave: 0.02
   enemyPool:
   - {fileID: 11400000, guid: be7d3fc12c244d549af35db1aea94483, type: 2}
+  baseHpMultiplier: 1
+  hpMultiplierPerWave: 0.2

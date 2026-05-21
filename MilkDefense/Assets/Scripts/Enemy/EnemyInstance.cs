@@ -7,15 +7,17 @@ public class EnemyInstance : MonoBehaviour, IObjectPoolable, IClickableEntity
     public Action OnRecycleStartSignature { get; }
     public Action OnRecycleFinishSignature { get; }
 
-    public event Action OnDied;
+    public event Action<EnemyInstance> OnDied;
 
     [SerializeField] private EntityInfoData _infoData;
     public EntityInfoData InfoData => _infoData;
+    public EnemyStatData StatData => _statData;
 
     private Transform[] _waypoints;
     private EnemyStatData _statData;
     private HpBarInstance _hpBar;
     private float _currentHp;
+    private float _maxHp;
     private float _moveSpeed;
     private int _waypointIndex;
 
@@ -24,18 +26,19 @@ public class EnemyInstance : MonoBehaviour, IObjectPoolable, IClickableEntity
     {
         canRecyclable = true;
 
-        DependencyInjector.Get<EnemyRegistry>()?.Unregister(this);
+        DependencyInjector.Get<EnemyRegistry>(suppressWarning: true)?.Unregister(this);
 
         if (_hpBar == null) return;
-        DependencyInjector.Get<HpBarManager>()?.Release(transform);
+        DependencyInjector.Get<HpBarManager>(suppressWarning: true)?.Release(transform);
         _hpBar = null;
     }
 
-    public void Initialize(EnemyStatData data, Transform[] waypoints)
+    public void Initialize(EnemyStatData data, Transform[] waypoints, float hpMultiplier = 1f)
     {
         _waypoints = waypoints;
         _statData = data;
-        _currentHp = data.maxHp;
+        _maxHp = data.maxHp * hpMultiplier;
+        _currentHp = _maxHp;
         _moveSpeed = data.moveSpeed;
         _waypointIndex = 0;
 
@@ -43,7 +46,7 @@ public class EnemyInstance : MonoBehaviour, IObjectPoolable, IClickableEntity
             transform.position = _waypoints[0].position;
 
         _hpBar = DependencyInjector.Get<HpBarManager>().Get(transform, data.enemyType);
-        _hpBar.UpdateBar(_currentHp, data.maxHp);
+        _hpBar.UpdateBar(_currentHp, _maxHp);
 
         DependencyInjector.Get<EnemyRegistry>().Register(this);
     }
@@ -73,13 +76,13 @@ public class EnemyInstance : MonoBehaviour, IObjectPoolable, IClickableEntity
     {
         if (_currentHp <= 0f) return;
         _currentHp -= dmg;
-        _hpBar?.UpdateBar(_currentHp, _statData.maxHp);
+        _hpBar?.UpdateBar(_currentHp, _maxHp);
         if (_currentHp <= 0f) Die();
     }
 
     private void Die()
     {
-        OnDied?.Invoke();
+        OnDied?.Invoke(this);
         gameObject.SetActive(false);
     }
 }

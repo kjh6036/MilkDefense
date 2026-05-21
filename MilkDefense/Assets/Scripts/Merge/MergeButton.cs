@@ -33,7 +33,8 @@ public class MergeButton : MonoBehaviour
 
     private void OnClick()
     {
-        _onMergeCallback?.Invoke();
+        var callback = _onMergeCallback;
         Hide();
+        callback?.Invoke();
     }
 }
