@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-// RangeIndicator와 같은 GameObject에 부착
-[RequireComponent(typeof(RangeIndicator))]
 public class EntityClickDetector : MonoBehaviour
 {
     [SerializeField] private EntityInfoUI _entityInfoUI;
@@ -13,13 +11,12 @@ public class EntityClickDetector : MonoBehaviour
     [SerializeField] private Vector3 _mergeButtonOffset = new Vector3(0f, -1f, 0f);
 
     private Camera _mainCamera;
-    private RangeIndicator _rangeIndicator;
+    [SerializeField] private RangeIndicator _rangeIndicator;
 
     private void Awake()
     {
         DependencyInjector.Constructor(this);
         _mainCamera = Camera.main;
-        _rangeIndicator = GetComponent<RangeIndicator>();
     }
 
     private void OnDestroy()
@@ -33,6 +30,17 @@ public class EntityClickDetector : MonoBehaviour
         _rangeIndicator.Hide();
         DependencyInjector.Get<CharacterSellManager>().Hide();
         DependencyInjector.Get<MergeManager>().CheckHide();
+    }
+
+    public void RefreshMercenaryUI(MercenaryBase mercenary)
+    {
+        MercenarySlot slot = mercenary.Slot;
+        if (slot == null) return;
+
+        _entityInfoUI.ShowMercenary(mercenary.InfoData, mercenary.Data, mercenary.Data.skills);
+        _rangeIndicator.Show(slot.transform.position, mercenary.Data.attackRange);
+        DependencyInjector.Get<MergeManager>().CheckMercenaryMerge(mercenary, slot.transform.position + _mergeButtonOffset);
+        DependencyInjector.Get<CharacterSellManager>().ShowMercenarySell(mercenary, slot.transform.position + _sellButtonOffset);
     }
 
     private void Start()

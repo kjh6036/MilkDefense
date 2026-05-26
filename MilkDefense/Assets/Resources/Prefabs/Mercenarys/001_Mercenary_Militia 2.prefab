@@ -189,3 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f76012d8851497f47a554924a5acdd98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MercenaryDragHandler
+  _rangeIndicator: {fileID: 0}
+  _draggableLayer:
+    serializedVersion: 2
+    m_Bits: 128

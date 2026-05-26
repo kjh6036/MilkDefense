@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class MercenaryDragHandler : MonoBehaviour
 {
-    [SerializeField] private RangeIndicator _rangeIndicator;
     [SerializeField] private LayerMask _draggableLayer;
 
     private MercenaryBase _mercenary;
@@ -30,7 +29,7 @@ public class MercenaryDragHandler : MonoBehaviour
             {
                 _isDragging = true;
                 _dragOffset = transform.position - (Vector3)worldPos;
-                _rangeIndicator?.Hide();
+                DependencyInjector.Get<EntityClickDetector>().HideAll();
             }
         }
 
@@ -56,13 +55,13 @@ public class MercenaryDragHandler : MonoBehaviour
             if (toSlot != null)
             {
                 fromSlot.SwapWith(toSlot);
-                _rangeIndicator?.Show(toSlot.transform.position, _mercenary.Data.attackRange);
             }
             else
             {
                 fromSlot.ResetPositions();
-                _rangeIndicator?.Show(fromSlot.transform.position, _mercenary.Data.attackRange);
             }
+
+            DependencyInjector.Get<EntityClickDetector>().RefreshMercenaryUI(_mercenary);
         }
     }
 

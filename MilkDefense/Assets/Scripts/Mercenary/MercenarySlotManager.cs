@@ -223,6 +223,7 @@ public class MercenarySlotManager : MonoBehaviour
 
     private void Rearrange()
     {
+        // 전체 용병 수집
         var all = new List<MercenaryBase>();
         foreach (var slot in _slots)
         {
@@ -230,40 +231,42 @@ public class MercenarySlotManager : MonoBehaviour
             slot.DetachAll();
         }
 
-        foreach (var mercenary in all)
+        // 같은 Data끼리 그룹핑
+        var groups = new System.Collections.Generic.Dictionary<MercenaryStatData, List<MercenaryBase>>();
+        foreach (var m in all)
         {
-            MercenarySlot target = null;
+            if (!groups.ContainsKey(m.Data))
+                groups[m.Data] = new List<MercenaryBase>();
+            groups[m.Data].Add(m);
+        }
 
-            foreach (var slot in _slots)
+        // 그룹별로 슬롯에 순서대로 배치 (MaxStack 단위로 끊어서)
+        foreach (var group in groups.Values)
+        {
+            int placed = 0;
+            while (placed < group.Count)
             {
-                if (slot.CanStack(mercenary.Data) && !slot.IsEmpty)
+                MercenarySlot target = FindEmptySlot();
+                if (target == null)
                 {
-                    target = slot;
+                    Debug.LogWarning("[MercenarySlotManager] 재정렬 중 배치할 슬롯이 없습니다.");
+                    for (int i = placed; i < group.Count; i++)
+                        group[i].gameObject.SetActive(false);
                     break;
                 }
-            }
 
-            if (target == null)
-            {
-                foreach (var slot in _slots)
-                {
-                    if (slot.IsEmpty)
-                    {
-                        target = slot;
-                        break;
-                    }
-                }
+                int stackCount = Mathf.Min(MercenarySlot.MaxStack, group.Count - placed);
+                for (int i = 0; i < stackCount; i++)
+                    target.Add(group[placed++]);
             }
-
-            if (target == null)
-            {
-                Debug.LogWarning("[MercenarySlotManager] 재정렬 중 배치할 슬롯이 없습니다.");
-                mercenary.gameObject.SetActive(false);
-                continue;
-            }
-
-            target.Add(mercenary);
         }
+    }
+
+    private MercenarySlot FindEmptySlot()
+    {
+        foreach (var slot in _slots)
+            if (slot.IsEmpty) return slot;
+        return null;
     }
 
     // ─── 드래그 ───────────────────────────────────────────

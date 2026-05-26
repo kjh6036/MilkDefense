@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MercenarySlot : MonoBehaviour
 {
-    private const int MaxStack = 3;
+    public const int MaxStack = 3;
 
     private static readonly Vector3[] StackOffsets = new Vector3[]
     {
@@ -38,7 +38,7 @@ public class MercenarySlot : MonoBehaviour
     private void ApplySortingOrder(MercenaryBase mercenary, int index)
     {
         foreach (var sr in mercenary.GetComponentsInChildren<SpriteRenderer>())
-            sr.sortingOrder = index;
+            sr.sortingOrder = index + 1;
     }
 
     // 비활성화 포함 제거 (풀 반환용)

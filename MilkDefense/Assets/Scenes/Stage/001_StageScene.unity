@@ -385,7 +385,6 @@ GameObject:
   - component: {fileID: 47574970}
   - component: {fileID: 47574975}
   - component: {fileID: 47574974}
-  - component: {fileID: 47574976}
   m_Layer: 5
   m_Name: Entitiy_UI_Canvas
   m_TagString: Untagged
@@ -527,19 +526,7 @@ MonoBehaviour:
     m_Bits: 192
   _sellButtonOffset: {x: 0, y: -3.5, z: 0}
   _mergeButtonOffset: {x: 0, y: 3.5, z: 0}
---- !u!114 &47574976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 47574969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1bb95a5317220442aee01c201fed2d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RangeIndicator
-  _spriteRenderer: {fileID: 1576097111}
+  _rangeIndicator: {fileID: 1576097113}
 --- !u!1 &70343512
 GameObject:
   m_ObjectHideFlags: 0
@@ -17563,7 +17550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1576097112}
   - component: {fileID: 1576097111}
-  - component: {fileID: 1576097110}
+  - component: {fileID: 1576097113}
   m_Layer: 0
   m_Name: Range_Indicator
   m_TagString: Untagged
@@ -17571,19 +17558,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1576097110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576097109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1bb95a5317220442aee01c201fed2d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RangeIndicator
-  _spriteRenderer: {fileID: 1576097111}
 --- !u!212 &1576097111
 SpriteRenderer:
   serializedVersion: 2
@@ -17658,6 +17632,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1576097113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576097109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1bb95a5317220442aee01c201fed2d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RangeIndicator
+  _spriteRenderer: {fileID: 1576097111}
 --- !u!1 &1583668087
 GameObject:
   m_ObjectHideFlags: 0
